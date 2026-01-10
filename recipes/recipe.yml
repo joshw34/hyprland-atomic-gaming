@@ -118,5 +118,7 @@ modules:
     system:
       enabled:
         - docker.service
+    user:
+      enabled:
         - sunshine.service
   - type: signing

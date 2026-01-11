@@ -4,6 +4,9 @@ description: Fedora Atomic with Hyprland (Gaming PC)
 base-image: ghcr.io/blue-build/base-images/fedora-base
 image-version: latest
 modules:
+  - type: kargs
+		kargs:
+			- amdgpu.ppfeaturemask=0xffffffff
   - type: dnf
     repos:
       nonfree: rpmfusion
@@ -63,6 +66,7 @@ modules:
       - gvfs
       - input-remapper
       - kitty
+      - libratbag-ratbagd
       - libva
       - libva-intel-media-driver
       - libva-nvidia-driver
@@ -119,11 +123,17 @@ modules:
           - com.valvesoftware.Steam
           - com.heroicgameslauncher.hgl
           - net.lutris.Lutris
+          - io.github.ilya_zlobintsev.LACT
+          - org.openrgb.OpenRGB
+          - org.onlyoffice.desktopeditors
   - type: systemd
     system:
       enabled:
         - docker.service
+        - ratbagd.service
+        - sshd.service
     user:
       enabled:
         - sunshine.service
+        - lactd.service
   - type: signing

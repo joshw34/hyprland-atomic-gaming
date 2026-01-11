@@ -135,5 +135,4 @@ modules:
     user:
       enabled:
         - sunshine.service
-        - lactd.service
   - type: signing

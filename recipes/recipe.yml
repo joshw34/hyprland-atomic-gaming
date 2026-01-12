@@ -14,9 +14,6 @@ modules:
     files:
       - source: system
         destination: /
-  - type: script
-    scripts:
-      - openrgb-udev-install.sh
   - type: brew
     nofile-limits: true
     brew-analytics: false
@@ -81,6 +78,7 @@ modules:
       - NetworkManager-tui
       - nwg-displays
       - nwg-look
+      - openrgb-udev-rules
       - papers
       - pavucontrol
       - podman
